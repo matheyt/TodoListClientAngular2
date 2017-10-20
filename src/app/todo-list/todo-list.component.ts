@@ -41,4 +41,22 @@ export class TodoListComponent implements OnInit {
       Object.assign({}, this.list.data, {color})
     );
   }
+
+  nbunchecked(): number {
+    let nbunchecked = 0;
+      for ( let b = 0 ; b < this.list.items.length; b++) {
+        if ( this.list.items[b].checked === false) {
+          nbunchecked++;
+        }
+      }
+    return nbunchecked;
+  }
+
+  nbItems(): number {
+    let nbItems = 0;
+    for ( let b = 0 ; b < this.list.items.length; b++) {
+        nbItems++;
+    }
+    return nbItems;
+  }
 }

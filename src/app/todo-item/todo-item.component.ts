@@ -12,6 +12,7 @@ export class TodoItemComponent implements OnInit, OnChanges {
   @Input() listId: ListID;
   @Input() clock: number;
   private editingLabel = false;
+  private derouleCategories = false;
 
   constructor(private todoListService: TodoListService) { }
 
@@ -43,5 +44,21 @@ export class TodoItemComponent implements OnInit, OnChanges {
 
   delete() {
     this.todoListService.SERVER_DELETE_ITEM(this.listId, this.item.id);
+  }
+
+  getDerouleCategories(): boolean {
+    return this.derouleCategories;
+  }
+
+  createDeroule() {
+    if (this.derouleCategories === false) {
+      this.derouleCategories = true;
+    } else {
+      this.derouleCategories = false;
+    }
+  }
+
+  updateItem() {
+
   }
 }

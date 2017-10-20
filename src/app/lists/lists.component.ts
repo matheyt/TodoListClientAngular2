@@ -26,4 +26,5 @@ export class ListsComponent implements OnInit {
       // Add other data here...
     });
   }
+
 }

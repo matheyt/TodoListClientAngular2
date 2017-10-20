@@ -1,11 +1,22 @@
-<p>There are {{getLists().length}} lists</p>
-<section>
-  <form (ngSubmit)="createList(newListName.value); newListName.value=''">
-    <label>Create a new list:</label>
-    <input type="text" #newListName/>
-  </form>
-</section>
+<!--<p>There are {{getLists().length}} lists</p>-->
+<div>
+  <br/>
+  <br/>
+</div>
 
+<section>
+
+  <form *ngIf="getLists().length===0;else formCache" (ngSubmit)="createList(newListName.value); newListName.value=''">
+    <div style="text-align:center; background-color:#F4F4F4;box-shadow: 1px 1px 12px #555;width:300px;margin:auto;padding-bottom: 100px;padding-top:15px;">
+      <label>Saisissez le nom de votre liste :</label><br/>
+      <br/>
+      <input type="text" #newListName/>
+    </div>
+  </form>
+  <ng-template #formCache>
+  </ng-template>
+
+</section>
 <!--
 <p>getItemsUI: {{getItemsUI() | json}}</p>
 <p>getLists: {{getLists() | json}}</p>

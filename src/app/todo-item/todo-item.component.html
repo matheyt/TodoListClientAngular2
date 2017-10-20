@@ -1,3 +1,4 @@
+
 <section>
   <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />
   <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
@@ -6,5 +7,15 @@
   <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
     <input #newLabel type="text" [value]="item.label"/>
   </form>
-  <button (click)="delete()">Delete</button>
+  <button (click)="createDeroule()" ><img src="https://image.noelshack.com/fichiers/2017/41/3/1507726486-clothes-label.png"/> </button>
+  <ul *ngIf="getDerouleCategories()" class="dropdown-menu">
+    <li><i class="icon-user"></i> Aucune <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" /></li>
+    <li><i class="icon-picture"></i> Catégorie 1<input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" /></li>
+    <li><i class="icon-screenshot"></i> Catégorie 2<input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" /></li>
+    <li><i class="icon-list-alt"></i> Catégorie 3<input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" /></li>
+    <li><i class="icon-list-alt"></i> Catégorie 4<input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" /></li>
+  </ul>
+
+  <button (click)="delete()">X</button>
+  <button (click)="editLabel(true)">Modifier</button>
 </section>
