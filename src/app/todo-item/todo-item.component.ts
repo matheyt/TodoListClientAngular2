@@ -1,5 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ListID, ItemJSON, TodoListService} from "../todo-list.service";
+import {DatePipe} from "@angular/common";
+import {DateFormatter} from "@angular/common/src/pipes/intl";
 
 @Component({
   selector: 'app-todo-item',
@@ -36,6 +38,7 @@ export class TodoItemComponent implements OnInit, OnChanges {
 
   editLabel(edit: boolean) {
     this.editingLabel = edit;
+    this.updateItem();
   }
 
   check(checked: boolean) {
@@ -59,6 +62,6 @@ export class TodoItemComponent implements OnInit, OnChanges {
   }
 
   updateItem() {
-    // this.item.dateItem = new Date();
+    this.item.date = Date.now();
   }
 }

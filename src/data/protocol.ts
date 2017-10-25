@@ -43,8 +43,7 @@ export type ItemJSON = {
   date: number,
   id: ItemID,
   clock: number,
-  data: Object
-  // sdateItem: Date// Possible extensions
+  data: Object // Possible extensions
 };
 
 export type TodoListJSON = {
