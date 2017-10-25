@@ -162,7 +162,7 @@ export class TodoListService {
       date: Date.now(),
       checked: checked,
       clock: -1,
-      data: data
+      data: {}
     });
     return id;
   }

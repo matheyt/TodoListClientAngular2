@@ -2,7 +2,8 @@
 <section>
   <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />
   <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
-    {{item.label}} (data: {{item.data | json}})
+    <!--{{item.label}} (data: {{item.data | json}})-->
+    {{item.label}} {{item.date}}
   </label>
   <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
     <input #newLabel type="text" [value]="item.label"/>
@@ -18,4 +19,5 @@
 
   <button (click)="delete()">X</button>
   <button (click)="editLabel(true)">Modifier</button>
+  <button (click)="updateItem()">ajoute date</button>
 </section>

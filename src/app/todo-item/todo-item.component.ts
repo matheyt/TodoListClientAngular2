@@ -59,6 +59,6 @@ export class TodoItemComponent implements OnInit, OnChanges {
   }
 
   updateItem() {
-
+    // this.item.dateItem = new Date();
   }
 }
