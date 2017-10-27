@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {TodoListWithItems, TodoListService} from "../todo-list.service";
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-todo-list',

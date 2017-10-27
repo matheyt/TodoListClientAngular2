@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ListID, ItemJSON, TodoListService} from "../todo-list.service";
-import {DatePipe} from "@angular/common";
-import {DateFormatter} from "@angular/common/src/pipes/intl";
+
+import {MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 
 @Component({
   selector: 'app-todo-item',
@@ -9,7 +9,7 @@ import {DateFormatter} from "@angular/common/src/pipes/intl";
   styleUrls: ['./todo-item.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TodoItemComponent implements OnInit, OnChanges {
+export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule {
   @Input() item: ItemJSON;
   @Input() listId: ListID;
   @Input() clock: number;

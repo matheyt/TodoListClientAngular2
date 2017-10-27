@@ -5,6 +5,11 @@
     <!--{{item.label}} (data: {{item.data | json}})-->
     {{item.label}} {{item.date | date:'medium'}}
   </label>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+
+  <!--<mat-checkbox>check</mat-checkbox>-->
   <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
     <input #newLabel type="text" [value]="item.label"/>
   </form>

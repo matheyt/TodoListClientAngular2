@@ -12,6 +12,8 @@ import {HttpModule} from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ListsComponent } from './lists/lists.component';
 
+import {MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const appRoutes: Routes = [
   {
     path: 'lists',
@@ -29,7 +31,7 @@ const appRoutes: Routes = [
     ListsComponent
   ],
   imports: [
-    BrowserModule, HttpModule, FormsModule,
+    BrowserModule, HttpModule, FormsModule, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, {useHash: true} )
   ],
   providers: [TodoListService],
