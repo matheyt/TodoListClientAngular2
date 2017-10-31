@@ -1,7 +1,10 @@
 import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ListID, ItemJSON, TodoListService} from "../todo-list.service";
 
-import {MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {
+  MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule,
+  MatDatepickerInput
+} from '@angular/material';
 
 @Component({
   selector: 'app-todo-item',
@@ -38,7 +41,7 @@ export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule
 
   editLabel(edit: boolean) {
     this.editingLabel = edit;
-    this.updateItem();
+    // this.updateItem();
   }
 
   check(checked: boolean) {
@@ -61,7 +64,12 @@ export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule
     }
   }
 
-  updateItem() {
-    this.item.date = Date.now();
+  updateItem(value: number) {
+    console.log("value: " + value);
+    console.log("date de base: " + this.item.data["itemDate"]);
+    this.item.data["itemDate"] = value;
+    console.log("date: " + this.item.data["itemDate"]);
+    // this.todoListService.SERVER_UPDATE_ITEM_DATA(this.listId, this.item.id, Object.assign({}, this.item.data["itemDate"], {value}));
+    this.todoListService.SERVER_UPDATE_ITEM_DATA(this.listId, this.item.id, this.item.data);
   }
 }

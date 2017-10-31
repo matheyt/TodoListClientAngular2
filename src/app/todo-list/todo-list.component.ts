@@ -21,7 +21,8 @@ export class TodoListComponent implements OnInit {
       someData: "someValue",
       someNumber: 42,
       someArray: ["riri", "fifi", "loulou"],
-      itemColor: "#FFFFFF"
+      itemColor: "#FFFFFF",
+      itemDate: Date.now()
       // Add other data here...
     });
   }

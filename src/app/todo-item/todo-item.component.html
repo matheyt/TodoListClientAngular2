@@ -3,9 +3,9 @@
   <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />
   <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
     <!--{{item.label}} (data: {{item.data | json}})-->
-    {{item.label}} {{item.date | date:'medium'}}
+    {{item.label}} {{item.data["itemDate"] | date:'shortDate'}}
   </label>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="updateItem(picker._datepickerInput.value)">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
 
@@ -24,5 +24,5 @@
 
   <button (click)="delete()">X</button>
   <button (click)="editLabel(true)">Modifier</button>
-  <button (click)="updateItem()">ajoute date</button>
+  <!--<button (click)="updateItem()">ajoute date</button>-->
 </section>
