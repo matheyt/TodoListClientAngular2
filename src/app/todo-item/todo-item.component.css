@@ -5,3 +5,11 @@ section.toBeUpdated {
 form {
   display: inline;
 }
+
+section:hover div.dropdown-menu{
+  visibility: visible;
+}
+
+div.dropdown-menu {
+  visibility: hidden;
+}

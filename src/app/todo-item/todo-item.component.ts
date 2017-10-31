@@ -2,8 +2,7 @@ import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChan
 import {ListID, ItemJSON, TodoListService} from "../todo-list.service";
 
 import {
-  MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule,
-  MatDatepickerInput
+  MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule
 } from '@angular/material';
 
 @Component({
@@ -12,7 +11,8 @@ import {
   styleUrls: ['./todo-item.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule {
+export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule,
+  MatInputModule {
   @Input() item: ItemJSON;
   @Input() listId: ListID;
   @Input() clock: number;
@@ -64,12 +64,8 @@ export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule
     }
   }
 
-  updateItem(value: number) {
-    console.log("value: " + value);
-    console.log("date de base: " + this.item.data["itemDate"]);
+  updateDateItem(value: number) {
     this.item.data["itemDate"] = value;
-    console.log("date: " + this.item.data["itemDate"]);
-    // this.todoListService.SERVER_UPDATE_ITEM_DATA(this.listId, this.item.id, Object.assign({}, this.item.data["itemDate"], {value}));
     this.todoListService.SERVER_UPDATE_ITEM_DATA(this.listId, this.item.id, this.item.data);
   }
 }
