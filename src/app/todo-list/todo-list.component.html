@@ -5,7 +5,6 @@
   </h3>
 
   <input #checked type="checkbox" (change)="checkAll(checked.checked)" />
-  <!--<input type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />-->
 
   <form (ngSubmit)="createItem(newItemLabel.value); newItemLabel.value=''">
     <label>Que faire ?</label>
