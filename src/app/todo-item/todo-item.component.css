@@ -13,3 +13,11 @@ section:hover div.dropdown-menu{
 div.dropdown-menu {
   visibility: hidden;
 }
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}

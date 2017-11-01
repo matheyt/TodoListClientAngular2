@@ -1,8 +1,12 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges, Inject} from '@angular/core';
 import {ListID, ItemJSON, TodoListService} from "../todo-list.service";
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+
 import {
-  MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule
+  MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatDialog,
+  MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig
 } from '@angular/material';
 
 @Component({
@@ -12,17 +16,19 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule,
-  MatInputModule {
+  MatInputModule,MatOptionModule,BrowserAnimationsModule,NoopAnimationsModule {
   @Input() item: ItemJSON;
   @Input() listId: ListID;
   @Input() clock: number;
   private editingLabel = false;
   private derouleCategories = false;
 
-  constructor(private todoListService: TodoListService) { }
+  constructor(private todoListService: TodoListService,public dialog: MatDialog) {
+  }
 
   ngOnInit() {
   }
+
   ngOnChanges(changes: SimpleChanges) {
   }
 
@@ -68,4 +74,28 @@ export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule
     this.item.data["itemDate"] = value;
     this.todoListService.SERVER_UPDATE_ITEM_DATA(this.listId, this.item.id, this.item.data);
   }
+
+  openModif(): void {
+    let dialogRef = this.dialog.open(DialogModif, <MatDialogConfig>{
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`); // Pizza!
+    });
+
+    dialogRef.close('Pizza!');
+  }
+}
+
+export class DialogModif {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogModif>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }
