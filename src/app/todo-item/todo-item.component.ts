@@ -6,7 +6,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import {
   MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatDialog,
-  MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig
+  MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatExpansionModule
 } from '@angular/material';
 
 @Component({
@@ -16,7 +16,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule,
-  MatInputModule, MatOptionModule, BrowserAnimationsModule, NoopAnimationsModule {
+  MatInputModule, MatOptionModule, BrowserAnimationsModule, NoopAnimationsModule, MatExpansionModule {
   @Input() item: ItemJSON;
   @Input() listId: ListID;
   @Input() clock: number;

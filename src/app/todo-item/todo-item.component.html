@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<section>
+<section style="display: block">
+  <div style="display: inline">
   <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />
   <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
     <!--{{item.label}} (data: {{item.data | json}})-->
@@ -15,21 +16,27 @@
 
 
     <div class="example-container">
-      <button (click)="createDeroule()" ><img src="https://image.noelshack.com/fichiers/2017/41/3/1507726486-clothes-label.png"/> </button>
-      <mat-form-field *ngIf="getDerouleCategories()">
-        <mat-select #selector placeholder="Select" (valueChange)="updateCategorieItem(selector.value)">
-          <mat-option value="Aucune">Aucune</mat-option>
-          <mat-option value="Catégorie 1">Catégorie 1</mat-option>
-          <mat-option value="Catégorie 2">Catégorie 2</mat-option>
-          <mat-option value="Catégorie 3">Catégorie 3</mat-option>
-          <mat-option value="Catégorie 4">Catégorie 4</mat-option>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-description>
+            <img src="https://image.noelshack.com/fichiers/2017/41/3/1507726486-clothes-label.png"/>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      <mat-form-field>
+        <mat-select #selector placeholder="Select">
+          <mat-option   value="Aucune">Aucune</mat-option>
+          <mat-option   value="Catégorie 1">Catégorie 1</mat-option>
+          <mat-option   value="Catégorie 2">Catégorie 2</mat-option>
+          <mat-option   value="Catégorie 3">Catégorie 3</mat-option>
+          <mat-option   value="Catégorie 4">Catégorie 4</mat-option>
         </mat-select>
       </mat-form-field>
+      </mat-expansion-panel>
 
 
 
     <button (click)="delete()">X</button>
     <button mat-raised-button (click)="openModif()">Modifier</button>
   </div>
-
+  </div>
 </section>

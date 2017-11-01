@@ -2,6 +2,10 @@ section.toBeUpdated {
   background-color: orangered;
 }
 
+section {
+  display: block;
+}
+
 form {
   display: inline;
 }
@@ -14,8 +18,8 @@ div.example-container {
   visibility: hidden;
 }
 .example-container {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  float: right;
 }
 
 .example-container > * {
