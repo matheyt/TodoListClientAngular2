@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<section>
+<section style="display: block">
   <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />
   <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
     <!--{{item.label}} (data: {{item.data | json}})-->
@@ -18,11 +18,11 @@
       <button (click)="createDeroule()" ><img src="https://image.noelshack.com/fichiers/2017/41/3/1507726486-clothes-label.png"/> </button>
       <mat-form-field *ngIf="getDerouleCategories()">
         <mat-select placeholder="Select">
-          <mat-option value="Aucun">Aucun</mat-option>
-          <mat-option value="Catégorie 1">Catégorie 1</mat-option>
-          <mat-option value="Catégorie 2">Catégorie 2</mat-option>
-          <mat-option value="Catégorie 3">Catégorie 3</mat-option>
-          <mat-option value="Catégorie 4">Catégorie 4</mat-option>
+          <mat-option (click)="createDeroule()"  value="Aucun">Aucun</mat-option>
+          <mat-option (click)="createDeroule()"  value="Catégorie 1">Catégorie 1</mat-option>
+          <mat-option (click)="createDeroule()"  value="Catégorie 2">Catégorie 2</mat-option>
+          <mat-option (click)="createDeroule()"  value="Catégorie 3">Catégorie 3</mat-option>
+          <mat-option (click)="createDeroule()"  value="Catégorie 4">Catégorie 4</mat-option>
         </mat-select>
       </mat-form-field>
 
