@@ -3,8 +3,12 @@
     {{list.name}}
     <button (click)="delete()">Delete list</button>
   </h3>
+
+  <input #checked type="checkbox" (change)="checkAll(checked.checked)" />
+  <!--<input type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />-->
+
   <form (ngSubmit)="createItem(newItemLabel.value); newItemLabel.value=''">
-    <label>Create a new item:</label>
+    <label>Que faire ?</label>
     <input type="text" #newItemLabel/>
   </form>
   <section class="items">

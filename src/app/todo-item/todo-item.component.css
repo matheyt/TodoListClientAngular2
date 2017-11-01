@@ -6,11 +6,11 @@ form {
   display: inline;
 }
 
-section:hover div.dropdown-menu{
+section:hover div.example-container{
   visibility: visible;
 }
 
-div.dropdown-menu {
+div.example-container {
   visibility: hidden;
 }
 .example-container {

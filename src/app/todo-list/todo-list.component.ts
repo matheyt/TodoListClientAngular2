@@ -22,7 +22,8 @@ export class TodoListComponent implements OnInit {
       someNumber: 42,
       someArray: ["riri", "fifi", "loulou"],
       itemColor: "#FFFFFF",
-      itemDate: Date.now()
+      itemDate: Date.now(),
+      itemCategorie: "Aucune"
       // Add other data here...
     });
   }
@@ -59,5 +60,11 @@ export class TodoListComponent implements OnInit {
         nbItems++;
     }
     return nbItems;
+  }
+
+  checkAll(checked: boolean) {
+    for (const item of this.list.items) {
+        this.todoListService.SERVER_UPDATE_ITEM_CHECK(this.list.id, item.id, checked);
+    }
   }
 }

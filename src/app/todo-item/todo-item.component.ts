@@ -16,14 +16,14 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule,
-  MatInputModule,MatOptionModule,BrowserAnimationsModule,NoopAnimationsModule {
+  MatInputModule, MatOptionModule, BrowserAnimationsModule, NoopAnimationsModule {
   @Input() item: ItemJSON;
   @Input() listId: ListID;
   @Input() clock: number;
   private editingLabel = false;
   private derouleCategories = false;
 
-  constructor(private todoListService: TodoListService,public dialog: MatDialog) {
+  constructor(private todoListService: TodoListService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -47,7 +47,6 @@ export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule
 
   editLabel(edit: boolean) {
     this.editingLabel = edit;
-    // this.updateItem();
   }
 
   check(checked: boolean) {
@@ -75,8 +74,13 @@ export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule
     this.todoListService.SERVER_UPDATE_ITEM_DATA(this.listId, this.item.id, this.item.data);
   }
 
+  updateCategorieItem(value: number) {
+    this.item.data["itemCategorie"] = value;
+    this.todoListService.SERVER_UPDATE_ITEM_DATA(this.listId, this.item.id, this.item.data);
+  }
+
   openModif(): void {
-    let dialogRef = this.dialog.open(DialogModif, <MatDialogConfig>{
+    const dialogRef = this.dialog.open(DialogModif, <MatDialogConfig>{
       width: '250px'
     });
 

@@ -8,7 +8,7 @@
     <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="updateDateItem(picker._datepickerInput.value)">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-  <!--<mat-checkbox>check</mat-checkbox>-->
+
   <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
     <input #newLabel type="text" [value]="item.label"/>
   </form>
@@ -17,8 +17,8 @@
     <div class="example-container">
       <button (click)="createDeroule()" ><img src="https://image.noelshack.com/fichiers/2017/41/3/1507726486-clothes-label.png"/> </button>
       <mat-form-field *ngIf="getDerouleCategories()">
-        <mat-select placeholder="Select">
-          <mat-option value="Aucun">Aucun</mat-option>
+        <mat-select #selector placeholder="Select" (valueChange)="updateCategorieItem(selector.value)">
+          <mat-option value="Aucune">Aucune</mat-option>
           <mat-option value="Catégorie 1">Catégorie 1</mat-option>
           <mat-option value="Catégorie 2">Catégorie 2</mat-option>
           <mat-option value="Catégorie 3">Catégorie 3</mat-option>
