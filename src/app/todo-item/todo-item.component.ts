@@ -80,22 +80,22 @@ export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule
   }
 
   openModif(): void {
-    const dialogRef = this.dialog.open(DialogModif, <MatDialogConfig>{
-      width: '250px'
+    const dialogRef = this.dialog.open(DialogModifComponent, {
+      width: '600px',
+      height: '400px'
     });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`); // Pizza!
-    });
-
-    dialogRef.close('Pizza!');
   }
 }
 
-export class DialogModif {
+@Component({
+  selector: 'app-kebab-case',
+  templateUrl: 'DialogModifComponent.html',
+})
+
+export class DialogModifComponent {
 
   constructor(
-    public dialogRef: MatDialogRef<DialogModif>,
+    public dialogRef: MatDialogRef<DialogModifComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   onNoClick(): void {

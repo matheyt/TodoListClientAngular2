@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoItemComponent } from './todo-item/todo-item.component';
+import { TodoItemComponent, DialogModifComponent} from './todo-item/todo-item.component';
 
 import { TodoListService } from "./todo-list.service";
 import {HttpModule} from '@angular/http';
@@ -31,7 +31,8 @@ const appRoutes: Routes = [
     AppComponent,
     TodoListComponent,
     TodoItemComponent,
-    ListsComponent
+    ListsComponent,
+    DialogModifComponent
   ],
   imports: [
     BrowserModule, HttpModule, FormsModule, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule,
