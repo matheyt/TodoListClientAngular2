@@ -88,7 +88,6 @@ export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule
 }
 
 @Component({
-  selector: 'app-kebab-case',
   templateUrl: 'DialogModifComponent.html',
 })
 

@@ -34,6 +34,7 @@ const appRoutes: Routes = [
     ListsComponent,
     DialogModifComponent
   ],
+  entryComponents: [DialogModifComponent],
   imports: [
     BrowserModule, HttpModule, FormsModule, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule,
     BrowserAnimationsModule, MatSelectModule, MatOptionModule, NoopAnimationsModule, MatDialogModule, MatExpansionModule,
