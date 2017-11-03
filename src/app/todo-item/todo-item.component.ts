@@ -6,7 +6,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 import {
   MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatDialog,
-  MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatExpansionModule
+  MatDialogRef, MAT_DIALOG_DATA, MatExpansionModule
 } from '@angular/material';
 
 @Component({
