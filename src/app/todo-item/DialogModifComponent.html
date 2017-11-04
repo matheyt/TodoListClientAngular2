@@ -1,2 +1,22 @@
-<h1 mat-dialog-title>he! tu vas marche maintenant</h1>
+<mat-form-field >
+  <input matInput #Input placeholder="Nom" value={{data.itemComponent.item.label}} >
+</mat-form-field>
+<br>
+ <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="votre date" >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+<br>
+  <mat-form-field>
+    <mat-select #selector placeholder="Catégorie" value="{{data.itemComponent.item.data['itemCategorie']}}">
+      <mat-option   value="Aucune">Aucune</mat-option>
+      <mat-option   value="Catégorie 1">Catégorie 1</mat-option>
+      <mat-option   value="Catégorie 2">Catégorie 2</mat-option>
+      <mat-option   value="Catégorie 3">Catégorie 3</mat-option>
+      <mat-option   value="Catégorie 4">Catégorie 4</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button [matDialogClose] (click)="data.itemComponent.updateItem(Input.value, picker._datepickerInput.value, selector.value)">Modifier</button>
+  <button mat-button (click)="onNoClick()">Annuler</button>
 

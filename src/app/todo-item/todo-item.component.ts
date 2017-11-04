@@ -79,10 +79,19 @@ export class TodoItemComponent implements OnInit, OnChanges, MatDatepickerModule
     this.todoListService.SERVER_UPDATE_ITEM_DATA(this.listId, this.item.id, this.item.data);
   }
 
+  updateItem(label: string, valueDate: number, valueCateg: number) {
+    this.setLabel(label);
+    if ( valueDate !== null) {
+      this.updateDateItem(valueDate);
+    }
+    this.updateCategorieItem(valueCateg);
+  }
+
   openModif(): void {
     const dialogRef = this.dialog.open(DialogModifComponent, {
       width: '600px',
-      height: '400px'
+      height: '400px',
+      data: { itemComponent: this }
     });
   }
 }
@@ -100,5 +109,6 @@ export class DialogModifComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
 
 }
