@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<section style="display: block">
+<section style="display: flex">
   <div style="display: inline">
   <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />
   <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
