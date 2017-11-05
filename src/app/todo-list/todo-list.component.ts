@@ -1,6 +1,8 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {TodoListWithItems, TodoListService} from "../todo-list.service";
+import {ItemJSON} from "../../data/protocol";
 
+type filterChose = (c: ItemJSON) => boolean;
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -10,6 +12,11 @@ import {TodoListWithItems, TodoListService} from "../todo-list.service";
 export class TodoListComponent implements OnInit {
   @Input() list: TodoListWithItems;
   @Input() clock: number;
+
+  filterAll: filterChose = (c: ItemJSON) => true;
+  filterCompleted: filterChose = (c: ItemJSON) => c.checked ? true : false;
+  filterActive: filterChose = (c: ItemJSON) => c.checked ? false : true;
+  filter: filterChose = this.filterAll;
 
   constructor(private todoListService: TodoListService) { }
 
@@ -66,5 +73,14 @@ export class TodoListComponent implements OnInit {
     for (const item of this.list.items) {
         this.todoListService.SERVER_UPDATE_ITEM_CHECK(this.list.id, item.id, checked);
     }
+  }
+  setFilterAll() {
+    this.filter = this.filterAll;
+  }
+  setFilterActive() {
+    this.filter = this.filterActive;
+  }
+  setFilterCompleted() {
+    this.filter = this.filterCompleted;
   }
 }

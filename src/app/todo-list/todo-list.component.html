@@ -8,8 +8,8 @@
   <!--<input type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />-->
 
   <form (ngSubmit)="createItem(newItemLabel.value); newItemLabel.value=''">
-    <label>Que faire ?</label>
-    <input type="text" #newItemLabel/>
+    <!--<label>Que faire ?</label>-->
+    <input type="text" #newItemLabel placeholder="Que faire ?"/>
   </form>
   <section class="items">
     <app-todo-item *ngFor="let item of list.items"
@@ -18,6 +18,19 @@
                    [listId]="list.id">
     </app-todo-item>
   </section>
+
+  <ul class="filters">
+    <li>
+      <a [class.selected]="filter===filterAll" #Tous (click)="setFilterAll()">Tous</a>
+    </li>
+    <li>
+      <a [class.selected]="filter===filterActive" #Actifs (click)="setFilterActive()">Actifs</a>
+    </li>
+    <li>
+      <a [class.selected]="filter===filterCompleted" #Complétés (click)="setFilterCompleted()">Complétés</a>
+    </li>
+  </ul>
+
   <div>
     <label> {{nbunchecked()}} restantes / {{nbItems()}}</label>
   </div>

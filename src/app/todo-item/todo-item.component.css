@@ -10,13 +10,22 @@ form {
   display: inline;
 }
 
-section:hover div.example-container{
+section:hover div.example-container {
   visibility: visible;
 }
 
 div.example-container {
   visibility: hidden;
 }
+
+section:hover mat-form-field {
+  visibility: visible;
+}
+
+mat-form-field {
+  visibility: hidden;
+}
+
 .example-container {
   display: inline-flex;
   float: right;
@@ -25,3 +34,4 @@ div.example-container {
 .example-container > * {
   width: 100%;
 }
+
