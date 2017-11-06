@@ -13,10 +13,10 @@ export class TodoListComponent implements OnInit {
   @Input() list: TodoListWithItems;
   @Input() clock: number;
 
+  filter: filterChose;
   filterAll: filterChose = (c: ItemJSON) => true;
   filterCompleted: filterChose = (c: ItemJSON) => c.checked ? true : false;
   filterActive: filterChose = (c: ItemJSON) => c.checked ? false : true;
-  filter: filterChose = this.filterAll;
 
   constructor(private todoListService: TodoListService) { }
 
@@ -33,6 +33,7 @@ export class TodoListComponent implements OnInit {
       itemCategorie: "Aucune"
       // Add other data here...
     });
+    this.filter = this.filterAll;
   }
 
   delete() {

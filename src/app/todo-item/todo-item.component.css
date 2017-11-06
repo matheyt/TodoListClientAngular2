@@ -3,7 +3,7 @@ section.toBeUpdated {
 }
 
 section {
-  display: block;
+  display: flex;
 }
 
 form {

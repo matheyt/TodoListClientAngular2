@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<section style="display: flex">
+<section>
   <div style="display: inline">
   <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />
+
   <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
     <!--{{item.label}} (data: {{item.data | json}})-->
     {{item.label}} {{item.data["itemDate"] | date:'shortDate'}}
