@@ -12,7 +12,7 @@ header {
   background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
   margin: 0;
   padding: 0.5em;
-  border-bottom: solid black 3px;
+  border-bottom:  solid black 3px;
 }
 
 header > h1 {
