@@ -8,18 +8,24 @@
     <section class="col-lg-12">
       <form (ngSubmit)="createList(newListName.value); newListName.value=''">
         <div class="styleCreateList">
-          <label style="font-family:Verdana, sans-serif;font-size:large;font-weight:bold;color: black;">Saisissez le nom d'une nouvelle liste :</label><br/>
+          <label style="font-family:Verdana, sans-serif;font-size:large;font-weight:bold;color: black;">Saisissez le nom
+            d'une nouvelle liste :</label><br/>
           <br/>
           <input type="text" #newListName/>
         </div>
       </form>
     </section>
   </section>
-</section>
-<!--
-<p>getItemsUI: {{getItemsUI() | json}}</p>
-<p>getLists: {{getLists() | json}}</p>
--->
-<section class="lists">
-  <app-todo-list *ngFor="let list of getLists()" [list]="list" [clock]="list.clock"></app-todo-list>
+
+  <!--
+  <p>getItemsUI: {{getItemsUI() | json}}</p>
+  <p>getLists: {{getLists() | json}}</p>
+  -->
+  <section class="row">
+    <section class="col-sm-12">
+      <section class="lists">
+        <app-todo-list *ngFor="let list of getLists()" [list]="list" [clock]="list.clock"></app-todo-list>
+      </section>
+    </section>
+  </section>
 </section>

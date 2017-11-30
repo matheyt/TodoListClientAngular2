@@ -1,2 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body{
+  background-image: url('https://cdn.pixabay.com/photo/2015/11/18/22/19/universe-1050036_960_720.jpg');
+}

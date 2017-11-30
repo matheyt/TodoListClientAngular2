@@ -1,38 +1,32 @@
 <!DOCTYPE html>
-<section>
-  <div style="display: inline">
-  <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />
+<section class="container">
+  <section class="row">
+    <section class="col-sm-1">
+    </section>
+    <section class="col-sm-10">
+      <section class="row">
+        <section class="col-sm-12">
+          <div style="display: inline; justify-content: left;">
+            <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)"/>
 
-  <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
-    <!--{{item.label}} (data: {{item.data | json}})-->
-    {{item.label}} {{item.data["itemDate"] | date:'shortDate'}}
-  </label>
+            <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
+              {{item.label}} {{item.data["itemDate"] | date:'shortDate'}}
+            </label>
 
-  <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
-    <input #newLabel type="text" [value]="item.label"/>
-  </form>
+            <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
+              <input #newLabel type="text" [value]="item.label"/>
+            </form>
 
 
-    <div class="example-container">
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-description>
-            <img src="https://image.noelshack.com/fichiers/2017/41/3/1507726486-clothes-label.png"/>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-      <mat-form-field>
-        <mat-select #selector placeholder="Select" (change)="updateCategorieItem(selector.value)">
-          <mat-option   value="Aucune">Aucune</mat-option>
-          <mat-option   value="Catégorie 1">Catégorie 1</mat-option>
-          <mat-option   value="Catégorie 2">Catégorie 2</mat-option>
-          <mat-option   value="Catégorie 3">Catégorie 3</mat-option>
-          <mat-option   value="Catégorie 4">Catégorie 4</mat-option>
-        </mat-select>
-      </mat-form-field>
-      </mat-expansion-panel>
-
-    <button (click)="delete()">X</button>
-    <button mat-raised-button (click)="openModif()">Modifier</button>
-  </div>
-  </div>
+            <div class="example-container">
+              <button (click)="delete()">X</button>
+              <button mat-raised-button (click)="openModif()">Modifier</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+    <section class="col-sm-1">
+    </section>
+  </section>
 </section>

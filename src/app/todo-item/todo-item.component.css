@@ -10,14 +10,6 @@ form {
   display: inline;
 }
 
-section:hover div.example-container {
-  visibility: visible;
-}
-
-div.example-container {
-  visibility: hidden;
-}
-
 section:hover mat-form-field {
   visibility: visible;
 }

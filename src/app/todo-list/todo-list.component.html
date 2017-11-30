@@ -1,37 +1,59 @@
 <section class="root">
-  <h3>
-    {{list.name}}
-    <button (click)="delete()">Delete list</button>
-  </h3>
+  <section class="container">
+    <section>
+        <h3 style="text-align: center">
+          {{list.name}}
+          <button (click)="delete()" class="button1">X</button>
+        </h3>
+    </section>
 
-  <input #checked type="checkbox" (change)="checkAll(checked.checked)" />
-  <!--<input type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />-->
+    <section class="row">
+      <section class="col-sm-1">
+      </section>
+      <section class="col-sm-10">
+        <input #checked type="checkbox" (change)="checkAll(checked.checked)"/>
+        <!--<input type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)" />-->
 
-  <form (ngSubmit)="createItem(newItemLabel.value); newItemLabel.value=''">
-    <!--<label>Que faire ?</label>-->
-    <input type="text" #newItemLabel placeholder="Que faire ?"/>
-  </form>
-  <section class="items">
-    <app-todo-item *ngFor="let item of list.items"
-                   [clock]="item.clock"
-                   [item]="item"
-                   [listId]="list.id">
-    </app-todo-item>
+        <form (ngSubmit)="createItem(newItemLabel.value); newItemLabel.value=''">
+          <!--<label>Que faire ?</label>-->
+          <input type="text" #newItemLabel placeholder="Que faire ?"/>
+        </form>
+      </section>
+      <section class="col-sm-1">
+      </section>
+    </section>
+    <section class="row">
+      <section class="col-sm-1">
+      </section>
+      <section class="col-sm-10">
+        <section class="items">
+          <app-todo-item *ngFor="let item of list.items"
+                         [clock]="item.clock"
+                         [item]="item"
+                         [listId]="list.id">
+          </app-todo-item>
+        </section>
+      </section>
+      <section class="col-sm-1">
+      </section>
+    </section>
+
+      <section style="text-align: center">
+      <ul class="filters">
+        <li>
+          <a [class.selected]="filter===filterAll" #Tous (click)="setFilterAll()">Tous</a>
+        </li>
+        <li>
+          <a [class.selected]="filter===filterActive" #Actifs (click)="setFilterActive()">Actifs</a>
+        </li>
+        <li>
+          <a [class.selected]="filter===filterCompleted" #Complétés (click)="setFilterCompleted()">Complétés</a>
+        </li>
+      </ul>
+
+    <div>
+      <label> {{nbunchecked()}} restantes / {{nbItems()}}</label>
+    </div>
+      </section>
+
   </section>
-
-  <ul class="filters">
-    <li>
-      <a [class.selected]="filter===filterAll" #Tous (click)="setFilterAll()">Tous</a>
-    </li>
-    <li>
-      <a [class.selected]="filter===filterActive" #Actifs (click)="setFilterActive()">Actifs</a>
-    </li>
-    <li>
-      <a [class.selected]="filter===filterCompleted" #Complétés (click)="setFilterCompleted()">Complétés</a>
-    </li>
-  </ul>
-
-  <div>
-    <label> {{nbunchecked()}} restantes / {{nbItems()}}</label>
-  </div>
-</section>
