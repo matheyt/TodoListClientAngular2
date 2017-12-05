@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoListWithItems, TodoListJSON, TodoListService, ItemJSON} from "../todo-list.service";
 import {List} from "immutable";
+import {DndModule} from 'ng2-dnd';
 
 @Component({
   selector: 'app-lists',
   templateUrl: './lists.component.html',
   styleUrls: ['./lists.component.css']
 })
-export class ListsComponent implements OnInit {
+export class ListsComponent implements OnInit, DndModule {
   lists = List<TodoListJSON>();
 
   constructor(private todoListService: TodoListService) { }

@@ -17,6 +17,8 @@ import {MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputMo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
+import {DndModule} from 'ng2-dnd';
+
 const appRoutes: Routes = [
   {
     path: 'lists',
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule, HttpModule, FormsModule, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule,
     BrowserAnimationsModule, MatSelectModule, MatOptionModule, NoopAnimationsModule, MatDialogModule, MatExpansionModule,
+    DndModule.forRoot(),
     RouterModule.forRoot(appRoutes, {useHash: true} )
   ],
   providers: [TodoListService],

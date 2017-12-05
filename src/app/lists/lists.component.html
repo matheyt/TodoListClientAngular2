@@ -23,8 +23,8 @@
   -->
   <section class="row">
     <section class="col-sm-12">
-      <section class="lists">
-        <app-todo-list *ngFor="let list of getLists()" [list]="list" [clock]="list.clock"></app-todo-list>
+      <section class="lists" dnd-sortable-container [sortableData]="getLists()">
+        <app-todo-list *ngFor="let list of getLists(); let i = index" [list]="list" [clock]="list.clock" dnd-sortable [sortableIndex]="i"></app-todo-list>
       </section>
     </section>
   </section>
