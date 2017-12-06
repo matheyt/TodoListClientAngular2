@@ -1,10 +1,11 @@
 <section class="root">
   <section class="container">
     <section>
-        <h3 style="text-align: center">
-          {{list.name}}
-          <button (click)="delete()" class="button1">X</button>
-        </h3>
+      <h3 style="text-align: center">
+        {{list.name}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="delete()" class="myButton">X</button>
+      </h3>
     </section>
 
     <section class="row">
@@ -18,7 +19,9 @@
           <!--<label>Que faire ?</label>-->
           <input type="text" #newItemLabel placeholder="Que faire ?"/>
         </form>
+        <hr/>
       </section>
+
       <section class="col-sm-1">
       </section>
     </section>
@@ -38,22 +41,10 @@
       </section>
     </section>
 
-      <section style="text-align: center">
-      <ul class="filters">
-        <li>
-          <a [class.selected]="filter===filterAll" #Tous (click)="setFilterAll()">Tous</a>
-        </li>
-        <li>
-          <a [class.selected]="filter===filterActive" #Actifs (click)="setFilterActive()">Actifs</a>
-        </li>
-        <li>
-          <a [class.selected]="filter===filterCompleted" #Complétés (click)="setFilterCompleted()">Complétés</a>
-        </li>
-      </ul>
-
-    <div>
-      <label> {{nbunchecked()}} restantes / {{nbItems()}}</label>
-    </div>
-      </section>
+    <section style="text-align: center">
+      <div>
+        <label> {{nbunchecked()}} restantes / {{nbItems()}}</label>
+      </div>
+    </section>
 
   </section>

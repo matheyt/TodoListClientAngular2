@@ -10,7 +10,7 @@
             <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)"/>
 
             <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
-              {{item.label}} {{item.data["itemDate"] | date:'shortDate'}}
+              {{item.label}}
             </label>
 
             <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
@@ -18,10 +18,14 @@
             </form>
 
 
-            <div class="example-container">
-              <button (click)="delete()">X</button>
-              <button mat-raised-button (click)="openModif()">Modifier</button>
+            <div class="item">
+              <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)" class="myDivDate">
+                {{item.data["itemDate"] | date:'shortDate'}}
+              </label>
+              <button (click)="delete()" class="myButtonDelete">🗑</button>
+              <button mat-raised-button (click)="openModif()" class="myButtonEdit">🖉</button>
             </div>
+            <hr/>
           </div>
         </section>
       </section>
