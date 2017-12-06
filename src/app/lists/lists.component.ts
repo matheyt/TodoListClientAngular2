@@ -28,4 +28,14 @@ export class ListsComponent implements OnInit, DndModule {
     });
   }
 
+  dndList($event: any, i: number ) {
+    console.log($event);
+    const dt = this.todoListService.getLists();
+    const index = dt.indexOf($event);
+    dt.splice(i, 0, $event);
+    dt.splice(index, 1);
+  this.todoListService.setLists(dt);
+  this.todoListService.sendState();
+  }
+
 }

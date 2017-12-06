@@ -266,6 +266,10 @@ export class TodoListService {
     return this.ListUIs;
   }
 
+  setLists(td: TodoListWithItems[]) {
+    this.ListUIs = td;
+  }
+
   emit(msg: MESSAGE_FOR_SERVER, cb?: (response: any) => any) {
     if (this.connected.getValue()) {
       return this.sio.emit("operation", msg, cb);
