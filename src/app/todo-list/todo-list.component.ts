@@ -13,11 +13,6 @@ export class TodoListComponent implements OnInit {
   @Input() list: TodoListWithItems;
   @Input() clock: number;
 
-  filter: filterChose;
-  filterAll: filterChose = (c: ItemJSON) => true;
-  filterCompleted: filterChose = (c: ItemJSON) => c.checked ? true : false;
-  filterActive: filterChose = (c: ItemJSON) => c.checked ? false : true;
-
   constructor(private todoListService: TodoListService) { }
 
   ngOnInit() {
@@ -33,7 +28,6 @@ export class TodoListComponent implements OnInit {
       itemCategorie: "Aucune"
       // Add other data here...
     });
-    this.filter = this.filterAll;
   }
 
   delete() {
@@ -75,13 +69,19 @@ export class TodoListComponent implements OnInit {
         this.todoListService.SERVER_UPDATE_ITEM_CHECK(this.list.id, item.id, checked);
     }
   }
-  setFilterAll() {
-    this.filter = this.filterAll;
-  }
-  setFilterActive() {
-    this.filter = this.filterActive;
-  }
-  setFilterCompleted() {
-    this.filter = this.filterCompleted;
+  duplicateList() {
+    const dt = this.todoListService.getLists();
+    const index = dt.indexOf(this.list);
+    const id = this.todoListService.getLocalListId();
+    const newList: TodoListWithItems = {
+     clock: this.list.clock,
+     id: id,
+     data: this.list.data,
+     items: this.list.items,
+     name: this.list.name,
+  };
+    dt.splice(index, 0, newList);
+    this.todoListService.sendState();
+    // appel fonction qui met a jour
   }
 }
