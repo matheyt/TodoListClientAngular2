@@ -7,19 +7,24 @@
       <section class="row">
         <section class="col-sm-12">
           <div style="display: inline; justify-content: left;">
-            <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)"/>
 
-            <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
+
+            <label class="retourLigne" *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)">
               {{item.label}}
             </label>
 
             <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
-              <input #newLabel type="text" [value]="item.label"/>
+              <input #newLabel type="textArea" [value]="item.label"/>
             </form>
 
-
             <div class="item">
-              <label *ngIf="!isEditingLabel()" (dblclick)="editLabel(true)" class="myDivDate">
+
+              <label class="myCheck">
+                <input #isChecked type="checkbox" [ngModel]="item.checked" (ngModelChange)="check(isChecked.checked)"/>
+              </label>
+
+
+              <label class="myDivDate">
                 {{item.data["itemDate"] | date:'shortDate'}}
               </label>
               <button (click)="delete()" class="myButtonDelete">🗑</button>
