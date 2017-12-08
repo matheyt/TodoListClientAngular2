@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="DialogModifComponent.css" />
 <mat-form-field >
   <input matInput #Input placeholder="Nom" value={{data.itemComponent.item.label}} >
 </mat-form-field>
@@ -18,6 +19,5 @@
     </mat-select>
   </mat-form-field>
 <br>
-  <button [matDialogClose] (click)="data.itemComponent.updateItem(Input.value, picker._datepickerInput.value, selector.value)">Modifier</button>
-  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button [matDialogClose] (click)="data.itemComponent.updateItem(Input.value, picker._datepickerInput.value, selector.value)" class="myButtonEdit">Valider</button>
 

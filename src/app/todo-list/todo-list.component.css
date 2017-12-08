@@ -60,10 +60,10 @@ section.items {
 }
 
 .myButton {
-  -moz-box-shadow:inset 0px 39px 0px -24px #C73131;
-  -webkit-box-shadow:inset 0px 39px 0px -24px #C73131;
-  box-shadow:inset 0px 39px 0px -24px #C73131;
-  background-color:#C73131;
+  -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+  -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+  box-shadow:inset 0px 39px 0px -24px #e67a73;
+  background-color:#e67a73;
   -moz-border-radius:42px;
   -webkit-border-radius:42px;
   border-radius:42px;
@@ -76,12 +76,39 @@ section.items {
   font-weight:bold;
   padding:3px 6px;
   text-decoration:none;
-  text-shadow:0px 1px 0px #b23e35;
+  text-shadow:0px 1px 0px #e67a73;
 }
 .myButton:hover {
-  background-color:#eb675e;
+  background-color:#e67a73;
 }
 .myButton:active {
+  position:relative;
+  top:1px;
+}
+
+.myButtonDup {
+  -moz-box-shadow:inset 0px 39px 0px -24px #b8b6b9;
+  -webkit-box-shadow:inset 0px 39px 0px -24px #b8b6b9;
+  box-shadow:inset 0px 39px 0px -24px #b8b6b9;
+  background-color:#b8b6b9;
+  -moz-border-radius:42px;
+  -webkit-border-radius:42px;
+  border-radius:42px;
+  border:0px;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:14px;
+  font-weight:bold;
+  padding:3px 6px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #b8b6b9;
+}
+.myButtonDup:hover {
+  background-color:#b8b6b9;
+}
+.myButtonDup:active {
   position:relative;
   top:1px;
 }
