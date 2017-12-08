@@ -10,7 +10,7 @@ section.lists {
 
 app-todo-list {
   flex: 0 0 auto;
-  width: 48%;
+  width: 47%;
   display: inline-flex;
   margin: 1em;
 }

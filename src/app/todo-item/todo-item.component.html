@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<section class="container">
+<section class="container" xmlns="http://www.w3.org/1999/html">
   <section class="row">
     <section class="col-sm-1">
     </section>
@@ -14,7 +14,8 @@
             </label>
 
             <form *ngIf="isEditingLabel()" (submit)="setLabel(newLabel.value)">
-              <input #newLabel type="textArea" [value]="item.label"/>
+              <textarea #newLabel>{{item.label}}</textarea>
+              <input type="submit">
             </form>
 
             <div class="item">
